@@ -4,8 +4,8 @@ cc_binary_host {
     srcs: ["*.cpp"],
 
     static_libs: [
-        "libLLVMSupport",
         "libLLVMTableGen",
+        "libLLVMSupport",
     ],
     clang_cflags: [
         "-Wno-user-defined-warnings",

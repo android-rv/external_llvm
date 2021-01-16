@@ -200,6 +200,17 @@ llvm_aarch64_static_libraries = [
     "libLLVMAArch64Disassembler",
 ]
 
+llvm_riscv64_static_libraries = [
+    //"libLLVMRISCV64CodeGen",
+    //"libLLVMRISCV64Info",
+    //"libLLVMRISCV64Desc",
+    //"libLLVMRISCV64AsmParser",
+    //"libLLVMRISCV64AsmPrinter",
+    //"libLLVMRISCV64Utils",
+    //"libLLVMRISCV64Disassembler",
+]
+
+
 cc_library {
     host_supported: true,
     name: "libLLVM_android",
@@ -260,7 +271,8 @@ cc_library {
            whole_static_libs: llvm_arm_static_libraries +
                 llvm_aarch64_static_libraries +
                 llvm_mips_static_libraries +
-                llvm_x86_static_libraries,
+                llvm_x86_static_libraries +
+                llvm_riscv64_static_libraries,
             export_include_dirs: ["host/include"],
         },
         windows: {
@@ -298,6 +310,10 @@ cc_library {
             whole_static_libs: llvm_aarch64_static_libraries +
                 llvm_arm_static_libraries,
         },
+        android_riscv64: {
+            whole_static_libs: llvm_riscv64_static_libraries,
+        },
+
     },
 }
 
